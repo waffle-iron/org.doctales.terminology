@@ -12,4 +12,16 @@
   <public publicId="-//DOCTALES//ENTITIES DITA 1.x DOCTALES Termentry//EN" uri="dtd/termentry.ent"/>
   <public publicId="-//DOCTALES//ENTITIES DITA 1.2 DOCTALES Termentry//EN" uri="dtd/termentry.ent"/>
   <public publicId="-//DOCTALES//ENTITIES DITA 1.3 DOCTALES Termentry//EN" uri="dtd/termentry.ent"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES Termstats//EN" uri="dtd/termstats.dtd"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES 1.x Termstats//EN" uri="dtd/termstats.dtd"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES 1.2 Termstats//EN" uri="dtd/termstats.dtd"/>
+  <public publicId="-//DOCTALES//DTD DITA DOCTALES 1.3 Termstats//EN" uri="dtd/termstats.dtd"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA DOCTALES Termstats//EN" uri="dtd/termstats.mod"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA 1.x DOCTALES Termstats//EN" uri="dtd/termstats.mod"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA 1.2 DOCTALES Termstats//EN" uri="dtd/termstats.mod"/>
+  <public publicId="-//DOCTALES//ELEMENTS DITA 1.3 DOCTALES Termstats//EN" uri="dtd/termstats.mod"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA DOCTALES Termstats//EN" uri="dtd/termstats.ent"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA 1.x DOCTALES Termstats//EN" uri="dtd/termstats.ent"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA 1.2 DOCTALES Termstats//EN" uri="dtd/termstats.ent"/>
+  <public publicId="-//DOCTALES//ENTITIES DITA 1.3 DOCTALES Termstats//EN" uri="dtd/termstats.ent"/>
 </catalog>
