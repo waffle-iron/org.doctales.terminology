@@ -4,6 +4,13 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="related-links xs">
     
+    <xsl:variable name="newline">
+        <xsl:text>
+        </xsl:text>
+    </xsl:variable>
+
+    <xsl:variable name="numberOfTerms" select="count(//*[contains (@class, ' termentry/termNotation ')])"/>    
+    
     <xsl:template match="*[contains(@class, ' termentry/definition ')]">
         <xsl:element name="div">
             <xsl:attribute name="class">panel panel-default definition</xsl:attribute>
@@ -1162,6 +1169,59 @@
                 <xsl:apply-templates select="." mode="processlinklist"/>
             </div>
         </div>
+    </xsl:template>
+    
+    <xsl:template match="*[contains(@class, ' termstats/termstatsBody ')]" name="topic.body">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+        <script src="d3pie.min.js"></script>
+        <div>
+          <xsl:call-template name="commonattributes"/>
+          <xsl:call-template name="setidaname"/>
+          <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+          <xsl:apply-templates/>
+          <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+        </div><xsl:value-of select="$newline"/>
+    </xsl:template>
+    
+    <xsl:template match="*[contains(@class, ' termstats/numberOfTerms ')]">
+        <p>NUMBER OF TERMS: <xsl:value-of select="$numberOfTerms"/></p>
+        <div id="chart"/>
+        <script type="text/javascript">
+            var w = 400;
+            var h = 400;
+            var r = h/2;
+            var color = d3.scale.category20c();
+
+            var data = [{"label":"German Terms", "value": 30},
+                        {"label":"Category B", "value":40}, 
+            		    {"label":"Category C", "value":30}];
+            
+            var vis = d3.select('#chart').append("svg:svg").data([data]).attr("width", w).attr("height", h).append("svg:g").attr("transform", "translate(" + r + "," + r + ")");
+            var pie = d3.layout.pie().value(function(d){return d.value;});
+            
+            // declare an arc generator function
+            var arc = d3.svg.arc().outerRadius(r);
+            
+            // select paths, use arc generator to draw
+            var arcs = vis.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
+            arcs.append("svg:path")
+                .attr("fill", function(d, i){
+                    return color(i);
+                })
+                .attr("d", function (d) {
+                    // log the result of the arc generator to show how cool it is :)
+                    console.log(arc(d));
+                    return arc(d);
+                });
+            
+            // add the text
+            arcs.append("svg:text").attr("transform", function(d){
+            			d.innerRadius = 0;
+            			d.outerRadius = r;
+                return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
+                return data[i].label;}
+            		);
+        </script>
     </xsl:template>
     
     <!--<!-\- Wrapper for hypernym group: "Related hypernyms" in a <div>. -\->
