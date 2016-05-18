@@ -6,4 +6,5 @@
  <topicref href="truck.dita" keys="truck"/>
  <topicref href="wheel.dita" keys="wheel"/>
  <topicref href="beetle.dita" keys="beetle"/>
+ <topicref href="termstats.dita"/>
 </map>
