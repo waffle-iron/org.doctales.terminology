@@ -1173,7 +1173,6 @@
     
     <xsl:template match="*[contains(@class, ' termstats/termstatsBody ')]" name="topic.body">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-        <script src="d3pie.min.js"></script>
         <div>
           <xsl:call-template name="commonattributes"/>
           <xsl:call-template name="setidaname"/>
@@ -1187,14 +1186,36 @@
         <p>NUMBER OF TERMS: <xsl:value-of select="$numberOfTerms"/></p>
         <div id="chart"/>
         <script type="text/javascript">
+            
+            $(document).ready(function(){
+            
+            
+            function parse(document){
+            $(document).find("numberOfTerms").each(function(){
+            $("#numberOfTerms").append(
+            '<p>de-DE: '  + $(this).find('lang.de-DE').text() +
+                '<br/>en-GB: '+ $(this).find('lang.en-GB').text() +
+                '<br/>en-US: '+ $(this).find('lang.en-US').text() +
+                '</p>'
+            );
+            });
+            }
+            
+            $.ajax({
+            url: 'stats.xml', // name of file you want to parse
+            dataType: "xml",
+            success: parse,
+            error: function(){alert("Error: stats.xml parser error");}
+            });
+            });
             var w = 400;
             var h = 400;
             var r = h/2;
             var color = d3.scale.category20c();
-
-            var data = [{"label":"German Terms", "value": 30},
-                        {"label":"Category B", "value":40}, 
-            		    {"label":"Category C", "value":30}];
+            
+            var data = [{"label":"German Terms", "value": 50},
+            {"label":"Category B", "value":40}, 
+            {"label":"Category C", "value":30}];
             
             var vis = d3.select('#chart').append("svg:svg").data([data]).attr("width", w).attr("height", h).append("svg:g").attr("transform", "translate(" + r + "," + r + ")");
             var pie = d3.layout.pie().value(function(d){return d.value;});
@@ -1205,22 +1226,22 @@
             // select paths, use arc generator to draw
             var arcs = vis.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
             arcs.append("svg:path")
-                .attr("fill", function(d, i){
-                    return color(i);
-                })
-                .attr("d", function (d) {
-                    // log the result of the arc generator to show how cool it is :)
-                    console.log(arc(d));
-                    return arc(d);
-                });
+            .attr("fill", function(d, i){
+            return color(i);
+            })
+            .attr("d", function (d) {
+            // log the result of the arc generator to show how cool it is :)
+            console.log(arc(d));
+            return arc(d);
+            });
             
             // add the text
             arcs.append("svg:text").attr("transform", function(d){
-            			d.innerRadius = 0;
-            			d.outerRadius = r;
-                return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
-                return data[i].label;}
-            		);
+            d.innerRadius = 0;
+            d.outerRadius = r;
+            return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
+            return data[i].label;}
+            );
         </script>
     </xsl:template>
     
