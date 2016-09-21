@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="terminology">
+ <title>Terminology</title>
+ <topicref href="axle.dita" keys="axle"/>
+ <topicref href="bus.dita" keys="bus"/>
+ <topicref href="car.dita" keys="car"/>
+ <topicref href="chassis.dita" keys="chassis"/>
+ <topicref href="coachwork.dita" keys="coachwork"/>
+ <topicref href="dieselEngine.dita" keys="dieselEngine"/>
+ <topicref href="groundPopulsion.dita" keys="groundPropulsion"/>
+ <topicref href="internalCombustionEngine.dita" keys="internalCombustionEngine"/>
+ <topicref href="KaessbohrerSetraS110H.dita" keys="kaessbohrerSetraS110H"/>
+ <topicref href="motorVehicle.dita" keys="motorVehicle"/>
+ <topicref href="petrolEngine.dita" keys="petrolEngine"/>
+ <topicref href="truck.dita" keys="truck"/>
+ <topicref href="vehicle.dita" keys="vehicle"/>
+ <topicref href="beetle.dita" keys="beetle"/>
+ <topicref href="wheel.dita" keys="wheel"/>
+</map>

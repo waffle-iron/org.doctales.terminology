@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="terminology">
+ <title>Terminology</title>
+ <topichead navtitle="Alphabetical Terms">
+ <mapref href="terminology.ditamap"/>
+ </topichead>
+<topichead navtitle="Structured Terms">
+ <topicref keyref="vehicle">
+  <topicref keyref="motorVehicle">
+   <topicref keyref="bus">
+    <topicref keyref="kaessbohrerSetraS110H"/>
+   </topicref>
+   <topicref keyref="car">
+    <topicref keyref="beetle"/>
+   </topicref>
+   <topicref keyref="truck"/>
+  </topicref>
+ </topicref>
+ <topicref keyref="chassis" keys="ST-Chassis">
+   <topicref keyref="groundPropulsion">
+    <topicref keyref="axle"/>
+    <topicref keyref="internalCombustionEngine">
+     <topicref keyref="dieselEngine"/>
+     <topicref keyref="petrolEngine"/>
+    </topicref>
+    <topicref keyref="wheel"/>
+   </topicref>
+  </topicref>
+ <topicref keyref="coachwork"/>
+</topichead>
+</map>
